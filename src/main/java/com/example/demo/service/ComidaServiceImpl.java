@@ -38,4 +38,16 @@ public class ComidaServiceImpl implements ComidaService {
 		return comidaJPA.save(comida);
 	}
 
+	@Override
+	public void borrar(Long id) {
+		comidaJPA.deleteById(id);	
+	}
+
+	@Override
+	public Comida editarComida(Long id, Comida comida) {
+		Comida nuevaComida = comidaJPA.findById(comida.getId_comida()).orElse(null);
+		nuevaComida.setPais(comida.getPais());
+		return comidaJPA.save(nuevaComida);
+	}
+
 }

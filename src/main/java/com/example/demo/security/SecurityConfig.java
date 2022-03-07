@@ -39,12 +39,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	                            "/comida/crear",
 	                            "/producto/producto{id}",
 	                            "/imagen/{id}",
-	                            "/comida/buscar",
+	                            "/comida/**",
+	                            "/editar/**",
+	                            "/mostrar",
+	                            "/borrar/**",
 	                            "/webjars/**").permitAll()
 	                    .antMatchers("/producto/crear").hasAuthority("ADMIN")
 	                    .antMatchers("/producto/borrar/{id}").hasAuthority("ADMIN")
 	                    .antMatchers("/user/userInfo/{id}").hasAnyAuthority("USER" , "ADMIN")
-	                    .antMatchers("/comida/crear").hasAuthority("USER")
+	                    .antMatchers("/comida/crear").hasAnyAuthority("USER" , "ADMIN")
 
 	                    .anyRequest().authenticated()
 	                .and()

@@ -65,10 +65,6 @@ public class Usuario implements Serializable{
 
 	//GETTERS AND SETTERS
 	
-	
-	
-
-
 	public Set<Comida> getComidas() {
 		return comidas;
 	}

@@ -83,7 +83,15 @@ public class Comida implements Serializable{
 	}
 
 
-    public Set<Usuario> getUsuarios_comidas() {
+    public Comida(long id, String pais) {
+    	super();
+		this.id_comida = id;
+		this.pais = pais;
+	}
+
+
+
+	public Set<Usuario> getUsuarios_comidas() {
 		return usuarios_comidas;
 	}
 
